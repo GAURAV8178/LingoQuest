@@ -1,0 +1,360 @@
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 70px);
+    background: linear-gradient(135deg, #253146 0%, #2e4b7f 50%, #1a3a52 100%);
+    padding: 2rem 1rem;
+}
+
+.profile-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.profile-container h1 {
+    color: #53d365;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    text-shadow: 0 4px 15px rgba(83, 211, 101, 0.2);
+}
+
+.profile-container h3 {
+    color: #53d365;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Error Message */
+
+.error-message {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ffb3b3;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid rgba(255, 107, 107, 0.5);
+}
+
+
+/* Profile Header */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #53d365;
+    box-shadow: 0 8px 20px rgba(83, 211, 101, 0.2);
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+    border-color: #f9aa33;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    color: rgba(255, 246, 233, 0.8);
+    font-size: 1rem;
+}
+
+.profile-info p strong {
+    color: #53d365;
+}
+
+
+/* Stats Section */
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat:hover {
+    background: rgba(83, 211, 101, 0.1);
+    border-color: #53d365;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(83, 211, 101, 0.15);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #53d365;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    color: rgba(255, 246, 233, 0.6);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Languages Section */
+
+.profile-languages {
+    margin-bottom: 30px;
+}
+
+.language-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.language-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.no-languages {
+    color: #999;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+
+/* Edit Form */
+
+.edit-form {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.edit-form h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+
+/* Language Input */
+
+.language-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.language-input input {
+    flex: 1;
+}
+
+.language-input button {
+    padding: 12px 25px;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.language-input button:hover {
+    background-color: #5568d3;
+}
+
+
+/* Language Tag Edit */
+
+.language-tag-edit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+.language-tag-edit button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.language-tag-edit button:hover {
+    transform: scale(1.2);
+}
+
+
+/* Form Actions */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+
+/* Buttons */
+
+.btn-edit,
+.btn-save,
+.btn-cancel,
+.logout-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+    flex: 1;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: white;
+    flex: 1;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 20px;
+    }
+    .profile-container h1 {
+        font-size: 2rem;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .btn-save,
+    .btn-cancel {
+        flex: none;
+        width: 100%;
+    }
+}
