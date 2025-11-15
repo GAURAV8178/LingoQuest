@@ -21,7 +21,7 @@ export default function Navbar() {
                 LingoQuest
             </Link>
             <div className="nav-links">
-                <Link to="/lesson/1">Lessons</Link>
+                <Link to="/lessons">Lessons</Link>
                 <Link to="/leaderboard">🏆 Leaderboard</Link>
                 {isLoggedIn ? (
                     <>

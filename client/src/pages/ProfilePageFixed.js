@@ -29,37 +29,30 @@ function StreakCalendar({ streakHistory = [] }) {
         });
     }
 
-    return ( <
-        div className = "streak-calendar" > {
-            days.map((d) => ( <
-                div key = { d.key }
-                className = { "streak-day" + (d.active ? " active" : "") }
-                title = { d.key } >
-                <
-                div className = "streak-dot" / >
-                <
-                div className = "streak-label" > { d.label } < /div> <
-                /div>
-            ))
-        } <
-        /div>
+    return (
+        <div className="streak-calendar">
+            {days.map((d) => (
+                <div 
+                    key={d.key}
+                    className={"streak-day" + (d.active ? " active" : "")}
+                    title={d.key}
+                >
+                    <div className="streak-dot" />
+                    <div className="streak-label">{d.label}</div>
+                </div>
+            ))}
+        </div>
     );
 }
 
 function ProgressBar({ progress = [], lessons = [] }) {
     const completeCount = (progress || []).filter((p) => p.completed).length;
     const total = lessons.length || 0;
-    return ( <
-        div className = "progress-panel" >
-        <
-        h4 >
-        Lessons Completed: { completeCount }
-        / {total} <
-        /h4> <
-        progress value = { completeCount }
-        max = { total }
-        /> <
-        /div>
+    return (
+        <div className="progress-panel">
+            <h4>Lessons Completed: {completeCount} / {total}</h4>
+            <progress value={completeCount} max={total} />
+        </div>
     );
 }
 
@@ -142,167 +135,124 @@ export default function ProfilePage() {
         }
     };
 
-    if (loading) return <div className = "profile-page" > < p className = "loading" > Loading... < /p></div > ;
+    if (loading) return <div className="profile-page"><p className="loading">Loading...</p></div>;
 
-    return ( <
-        div className = "profile-page" >
-        <
-        div className = "profile-container" >
-        <
-        h1 > Your Profile < /h1>
+    return (
+        <div className="profile-page">
+            <div className="profile-container">
+                <h1>Your Profile</h1>
 
-        {
-            error && < div className = "error-message" > { error } < /div>}
+                {error && <div className="error-message">{error}</div>}
 
-            <
-            div className = "profile-header" >
-                <
-                img src = { user.avatar || "/default-avatar.png" }
-            alt = "Avatar"
-            className = "profile-avatar" / >
-                <
-                div className = "profile-info" >
-                <
-                p >
-                <
-                strong > Username: < /strong> {user.username} <
-                /p> <
-                p >
-                <
-                strong > Email: < /strong> {user.email} <
-                /p> <
-                p >
-                <
-                strong > Member Since: < /strong> {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A
-            "} <
-            /p> <
-            /div> <
-            /div>
+                <div className="profile-header">
+                    <img 
+                        src={user.avatar || "/default-avatar.png"}
+                        alt="Avatar"
+                        className="profile-avatar" 
+                    />
+                    <div className="profile-info">
+                        <p>
+                            <strong>Username:</strong> {user.username}
+                        </p>
+                        <p>
+                            <strong>Email:</strong> {user.email}
+                        </p>
+                        <p>
+                            <strong>Member Since:</strong> {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}
+                        </p>
+                    </div>
+                </div>
 
-            <
-            div className = "profile-stats" >
-                <
-                div className = "stat" >
-                <
-                span className = "stat-value" > { user.xp || 0 } < /span> <
-                span className = "stat-label" > XP < /span> <
-                /div> <
-                div className = "stat" >
-                <
-                span className = "stat-value" > { user.streak || 0 } < /span> <
-                span className = "stat-label" > Streak(days) < /span> <
-                /div> <
-                div className = "stat" >
-                <
-                span className = "stat-value" > { user.coins || 0 } < /span> <
-                span className = "stat-label" > Coins < /span> <
-                /div> <
-                /div>
+                <div className="profile-stats">
+                    <div className="stat">
+                        <span className="stat-value">{user.xp || 0}</span>
+                        <span className="stat-label">XP</span>
+                    </div>
+                    <div className="stat">
+                        <span className="stat-value">{user.streak || 0}</span>
+                        <span className="stat-label">Streak (days)</span>
+                    </div>
+                    <div className="stat">
+                        <span className="stat-value">{user.coins || 0}</span>
+                        <span className="stat-label">Coins</span>
+                    </div>
+                </div>
 
-            <
-            div className = "streak-calendar-section" >
-                <
-                h3 > Your Streak Activity < /h3> <
-                StreakCalendar streakHistory = { user.streakHistory || [] }
-            /> <
-            /div>
+                <div className="streak-calendar-section">
+                    <h3>Your Streak Activity</h3>
+                    <StreakCalendar streakHistory={user.streakHistory || []} />
+                </div>
 
-            <
-            ProgressBar progress = { user.progress || [] }
-            lessons = { lessons }
-            />
+                <ProgressBar progress={user.progress || []} lessons={lessons} />
 
-            <
-            div className = "profile-languages" >
-                <
-                h3 > Languages Learning: < /h3> <
-                div className = "language-list" > {
-                    user.languages && user.languages.length > 0 ? (
-                        user.languages.map((lang, idx) => ( <
-                            span key = { idx }
-                            className = "language-tag" > { lang } <
-                            /span>
-                        ))
-                    ) : ( <
-                        p className = "no-languages" > No languages yet < /p>
-                    )
-                } <
-                /div> <
-                /div>
+                <div className="profile-languages">
+                    <h3>Languages Learning:</h3>
+                    <div className="language-list">
+                        {user.languages && user.languages.length > 0 ? (
+                            user.languages.map((lang, idx) => (
+                                <span key={idx} className="language-tag">{lang}</span>
+                            ))
+                        ) : (
+                            <p className="no-languages">No languages yet</p>
+                        )}
+                    </div>
+                </div>
 
-            {
-                isEditing ? ( <
-                    div className = "edit-form" >
-                    <
-                    h3 > Edit Profile < /h3> <
-                    div className = "form-group" >
-                    <
-                    label > Avatar URL: < /label> <
-                    input type = "text"
-                    name = "avatar"
-                    value = { formData.avatar }
-                    onChange = { handleInputChange }
-                    placeholder = "https://example.com/avatar.jpg" / >
-                    <
-                    /div>
+                {isEditing ? (
+                    <div className="edit-form">
+                        <h3>Edit Profile</h3>
+                        <div className="form-group">
+                            <label>Avatar URL:</label>
+                            <input 
+                                type="text"
+                                name="avatar"
+                                value={formData.avatar}
+                                onChange={handleInputChange}
+                                placeholder="https://example.com/avatar.jpg" 
+                            />
+                        </div>
 
-                    <
-                    div className = "form-group" >
-                    <
-                    label > Add Language: < /label> <
-                    div className = "language-input" >
-                    <
-                    input type = "text"
-                    id = "langInput"
-                    placeholder = "e.g., Spanish" / >
-                    <
-                    button onClick = {
-                        () => {
-                            const langInput = document.getElementById("langInput");
-                            handleLanguageAdd(langInput.value);
-                            langInput.value = "";
-                        }
-                    } >
-                    Add <
-                    /button> <
-                    /div> <
-                    div className = "language-list" > {
-                        formData.languages.map((lang, idx) => ( <
-                            div key = { idx }
-                            className = "language-tag-edit" >
-                            <
-                            span > { lang } < /span> <
-                            button onClick = {
-                                () => handleLanguageRemove(lang) } > × < /button> <
-                            /div>
-                        ))
-                    } <
-                    /div> <
-                    /div>
+                        <div className="form-group">
+                            <label>Add Language:</label>
+                            <div className="language-input">
+                                <input 
+                                    type="text"
+                                    id="langInput"
+                                    placeholder="e.g., Spanish" 
+                                />
+                                <button onClick={() => {
+                                    const langInput = document.getElementById("langInput");
+                                    handleLanguageAdd(langInput.value);
+                                    langInput.value = "";
+                                }}>
+                                    Add
+                                </button>
+                            </div>
+                            <div className="language-list">
+                                {formData.languages.map((lang, idx) => (
+                                    <div key={idx} className="language-tag-edit">
+                                        <span>{lang}</span>
+                                        <button onClick={() => handleLanguageRemove(lang)}>×</button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
-                    <
-                    div className = "form-actions" >
-                    <
-                    button className = "btn-save"
-                    onClick = { handleSaveProfile } >
-                    Save Changes <
-                    /button> <
-                    button className = "btn-cancel"
-                    onClick = {
-                        () => setIsEditing(false) } >
-                    Cancel <
-                    /button> <
-                    /div> <
-                    /div>
-                ) : ( <
-                    button className = "btn-edit"
-                    onClick = {
-                        () => setIsEditing(true) } >
-                    Edit Profile <
-                    /button>
-                )
-            } <
-            /div> <
-            /div>
-        );
-    }
+                        <div className="form-actions">
+                            <button className="btn-save" onClick={handleSaveProfile}>
+                                Save Changes
+                            </button>
+                            <button className="btn-cancel" onClick={() => setIsEditing(false)}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <button className="btn-edit" onClick={() => setIsEditing(true)}>
+                        Edit Profile
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+}
