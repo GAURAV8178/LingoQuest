@@ -16,39 +16,20 @@ import "./styles/theme.css";
  * Sets up routing for the entire LingoQuest application
  */
 function App() {
-    return ( <
-        BrowserRouter >
-        <
-        Navbar / >
-        <
-        Routes >
-        <
-        Route path = "/"
-        element = { < HomePage / > }
-        /> <
-        Route path = "/login"
-        element = { < LoginPage / > }
-        /> <
-        Route path = "/register"
-        element = { < RegisterPage / > }
-        /> <
-        Route path = "/lesson/:id"
-        element = { < LessonPage / > }
-        /> <
-        Route path = "/profile"
-        element = { < ProfilePage / > }
-        /> <
-        Route path = "/leaderboard"
-        element = { < LeaderboardPage / > }
-        /> <
-        Route path = "/admin"
-        element = { < AdminDashboard / > }
-        /> <
-        Route path = "/select-language"
-        element = { < LanguageSelectPage / > }
-        /> <
-        /Routes> <
-        /BrowserRouter>
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/lesson/:id" element={<LessonPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/leaderboard" element={<LeaderboardPage />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/select-language" element={<LanguageSelectPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
