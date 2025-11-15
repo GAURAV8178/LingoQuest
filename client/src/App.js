@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import LessonPage from "./pages/LessonPage";
+import LessonsListPage from "./pages/LessonsListPage";
 import ProfilePage from "./pages/ProfilePageFixed";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
+                <Route path="/lessons" element={<LessonsListPage />} />
                 <Route path="/lesson/:id" element={<LessonPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
