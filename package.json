@@ -1,11 +1,22 @@
 {
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "framer-motion": "^12.23.24",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.3"
-  }
+    "name": "lingoquest",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "client": "cd client && npm run dev",
+        "server": "cd server && npm run dev",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "framer-motion": "^12.23.24",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.19.3"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
 }
